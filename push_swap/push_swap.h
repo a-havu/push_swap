@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/21 10:00:33 by ahavu             #+#    #+#             */
-/*   Updated: 2024/12/21 10:00:43 by ahavu            ###   ########.fr       */
+/*   Created: 2024/12/21 10:01:21 by ahavu             #+#    #+#             */
+/*   Updated: 2024/12/25 12:21:58 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-int main(int argc, char **argv)
-{
-    check_args(argc, argv);
-}
+# include "../Libft/libft.h"
+# include "../ft_printf/libftprintf.h"
+
+char     **check_args(int argc, char **argv);
+void    push_swap(int argc, char **argv);
+void    sa(t_list **lst);
+
+#endif

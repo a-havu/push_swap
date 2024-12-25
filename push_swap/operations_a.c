@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 10:12:12 by ahavu             #+#    #+#             */
-/*   Updated: 2024/12/22 10:21:49 by ahavu            ###   ########.fr       */
+/*   Updated: 2024/12/23 09:43:27 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,36 @@
 
 void    sa(t_list **stack_a)
 {
-    t_list *tmp;
+    t_list  *temp;
     
     if (!*stack_a || ft_lstsize(*stack_a) == 1)
         return ;
-    tmp = *stack_a;
+    temp = *stack_a;
     *stack_a = (*stack_a)->next;
-    tmp->next = (*stack_a)->next;
-    (*stack_a)->next = tmp;
+    temp->next = (*stack_a)->next;
+    (*stack_a)->next = temp;
 }
+
 void    pa(t_list **stack_a, t_list **stack_b)
 {
+    t_list  *temp;
+    
     if (!*stack_a)
         return ;
-    ft_lstadd_front(*stack_b, stack_a);
-    ft_lstdelone(stack_a, *del);
+    temp = *stack_a;
+    ft_lstadd_front(stack_b, temp);
+    *stack_a = (*stack_a)->next;
+}
+
+void    ra(t_list **stack_a)
+{
+    t_list  *top;
+    t_list  *bottom;
+
+    if (ft_lstsize(stack_a) < 2)
+        return ;
+    top = *stack_a;
+    bottom = ft_lstlast(stack_a);
+    ft_lstadd_back(stack_a, top);
+    *stack_a = top->next;
 }

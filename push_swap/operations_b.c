@@ -6,20 +6,31 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 10:50:09 by ahavu             #+#    #+#             */
-/*   Updated: 2024/12/21 10:50:29 by ahavu            ###   ########.fr       */
+/*   Updated: 2024/12/23 09:17:33 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap"
+#include "push_swap.h"
 
 void    sb(t_list **stack_b)
 {
-    t_list  *tmp;
+    t_list  *temp;
     
-    if (!stack_b || ft_lstsize(*stack_b) == 1)
+    if (!*stack_b || ft_lstsize(*stack_b) == 1)
         return ;
-    tmp = *stack_b;
+    temp = *stack_b;
     *stack_b = (*stack_b)->next;
-    tmp->next = (*stack_b)->next;
-    (*stack_b)->next = tmp;
+    temp->next = (*stack_b)->next;
+    (*stack_b)->next = temp;
+}
+
+void    pb(t_list **stack_a, t_list **stack_b)
+{
+    t_list  *temp;
+
+    if (!*stack_b)
+        return ;
+    temp = *stack_b;
+    ft_lstadd_front(stack_a, temp);
+    *stack_b = (*stack_b)->next;
 }
