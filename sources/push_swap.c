@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 10:00:33 by ahavu             #+#    #+#             */
-/*   Updated: 2024/12/28 09:58:20 by ahavu            ###   ########.fr       */
+/*   Updated: 2024/12/30 12:45:37 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void    create_linked_list(char **argv)
     ft_lstlast(arg_list)->next = NULL;
 }
 
-void    push_swap(int argc, char **argv)
+void    push_swap(char **argv)
 {
     create_linked_list(argv);
 }
@@ -47,6 +47,6 @@ int main(int argc, char **argv)
         ft_printf("%s\n", "Error");
         return (-1);
     }
-    push_swap(argc, argv);
+    push_swap(argv);
     return (0);
 }
