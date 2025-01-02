@@ -6,11 +6,22 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 10:00:27 by ahavu             #+#    #+#             */
-/*   Updated: 2024/12/30 12:48:50 by ahavu            ###   ########.fr       */
+/*   Updated: 2024/12/31 12:46:08 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../headers/push_swap.h"
+
+static int	int_ok(char *arg)
+{
+	long int	num;
+
+	num = ft_atoi(arg);
+	if (num > INT_MAX || num < INT_MIN)
+		return (0);
+	else
+		return (1);
+}
 
 static int	compare(const char *s1, const char *s2)
 {
@@ -26,7 +37,7 @@ static int	compare(const char *s1, const char *s2)
 	return (0);
 }
 
-static int	incl_dup(int argc, char **argv)
+static int	check_dup(int argc, char **argv)
 {
     int	i;
     int	k;
@@ -47,7 +58,7 @@ static int	incl_dup(int argc, char **argv)
 	return (1);
 }
 
-static int  incl_chars(char *arg)
+static int  input_nbrs(char *arg)
 {
 	size_t i;
 
@@ -70,22 +81,17 @@ char     **check_args(int argc, char **argv)
     
     i = 1;
     k = 0;
-    if (argc == 2 && ft_strchr(argv[1], '\"'))
-    {
-        ft_strtrim(argv[1], "\"");
-        **argv = ft_split(argv[1], ' ');
-    }
-	if (argc == 2 && !ft_strchr(argv[1], '\"'))
+    if (argc == 2)
 	{
-		ft_printf("%s\n", "Error");
-        return (NULL);
+		argv = args_split(argv[i]);
+		if (!argv)
+			return (NULL);
 	}
     while (argv[i])
     {
-        if (!incl_chars(argv[i]))
-            return (NULL);
-        if (!incl_dup(argc, argv[i]))
-            return (NULL);
+        if (!input_nbrs(argv[i]) || !check_dup(argc, argv) \
+		|| !int_ok(argv[i]))
+			return (NULL);
 		else
 			i++;
     }

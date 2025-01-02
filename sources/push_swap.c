@@ -6,11 +6,11 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 10:00:33 by ahavu             #+#    #+#             */
-/*   Updated: 2024/12/30 12:45:37 by ahavu            ###   ########.fr       */
+/*   Updated: 2024/12/31 12:59:28 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../headers/push_swap.h"
 
 static void    create_linked_list(char **argv)
 {
@@ -39,7 +39,6 @@ void    push_swap(char **argv)
 {
     create_linked_list(argv);
 }
-
 int main(int argc, char **argv)
 {
     if (argc < 2 || !check_args(argc, argv))
@@ -47,6 +46,7 @@ int main(int argc, char **argv)
         ft_printf("%s\n", "Error");
         return (-1);
     }
-    push_swap(argv);
+    else (ft_printf("%s\n", "Valid input"));
+   // push_swap(argv);
     return (0);
 }

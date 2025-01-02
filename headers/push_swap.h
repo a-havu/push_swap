@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 10:01:21 by ahavu             #+#    #+#             */
-/*   Updated: 2024/12/30 11:30:58 by ahavu            ###   ########.fr       */
+/*   Updated: 2024/12/31 12:44:28 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 
 # include "../libft/libft.h"
 # include "../ft_printf/libftprintf.h"
+# include <limits.h>
 
 void    push_swap(char **argv);
+char    **args_split(char *arg);
 char     **check_args(int argc, char **argv);
 void    del(void *content);
 
