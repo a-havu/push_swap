@@ -6,11 +6,11 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 08:50:40 by ahavu             #+#    #+#             */
-/*   Updated: 2024/12/21 09:53:56 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/09 16:37:47 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_plus.h"
 
 void	ft_putchar_fd(char c, int fd)
 {

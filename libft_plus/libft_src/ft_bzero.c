@@ -6,11 +6,11 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 14:11:08 by ahavu             #+#    #+#             */
-/*   Updated: 2024/12/21 09:50:57 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/09 16:36:14 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_plus.h"
 
 void	ft_bzero(void *s, size_t n)
 {

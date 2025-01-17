@@ -41,5 +41,5 @@ int	ft_atoi(const char *nptr)
 
 int main()
 {
-    printf("%d", ft_atoi("h"));
+    printf("%d", ft_atoi("54867543867438"));
 }

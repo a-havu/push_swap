@@ -6,7 +6,7 @@
 #    By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 10:20:46 by ahavu             #+#    #+#              #
-#    Updated: 2025/01/08 14:26:17 by ahavu            ###   ########.fr        #
+#    Updated: 2025/01/09 16:32:52 by ahavu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,8 @@ LIBFT_SRC = $(LIBFT_PATH)ft_atoi.c $(LIBFT_PATH)ft_bzero.c \
 			$(LIBFT_PATH)ft_lstsize.c $(LIBFT_PATH)ft_lstlast.c \
 			$(LIBFT_PATH)ft_lstadd_back.c $(LIBFT_PATH)ft_lstdelone.c \
 			$(LIBFT_PATH)ft_lstclear.c $(LIBFT_PATH)ft_lstiter.c \
-			$(LIBFT_PATH)ft_lstmap.c $(LIBFT_PATH)get_next_line.c
+			$(LIBFT_PATH)ft_lstmap.c $(LIBFT_PATH)get_next_line.c \
+			$(LIBFT_PATH)ft_atoi_longlong.c
 
 PRINTF_SRC = 	$(PRINTF_PATH)ft_printf.c $(PRINTF_PATH)print_char.c \
 				$(PRINTF_PATH)print_hex.c $(PRINTF_PATH)print_nbr.c \
@@ -45,7 +46,7 @@ PRINTF_SRC = 	$(PRINTF_PATH)ft_printf.c $(PRINTF_PATH)print_char.c \
 LIBFT_OBJECTS = $(LIBFT_SRC:.c=.o)
 PRINTF_OBJECTS = $(PRINTF_SRC:.c=.o)
 
-HEADER = $(LIBFT_PATH)libft.h $(PRINTF_PATH)libftprintf.h
+HEADER = $(LIBFT_PATH)libft_plus.h $(PRINTF_PATH)libftprintf.h
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror

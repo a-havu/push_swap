@@ -6,11 +6,11 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 12:32:31 by ahavu             #+#    #+#             */
-/*   Updated: 2024/12/21 09:53:50 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/09 16:37:43 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_plus.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {

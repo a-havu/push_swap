@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   is_stack_sorted.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/29 12:06:05 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/09 16:36:34 by ahavu            ###   ########.fr       */
+/*   Created: 2025/01/13 13:30:44 by ahavu             #+#    #+#             */
+/*   Updated: 2025/01/16 08:48:28 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_plus.h"
+#include "../push_swap.h"
 
-int	ft_isdigit(int c)
+int	is_stack_sorted(t_stack *stack_a)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	int	i;
+	i = stack_a->value;
+
+	while(stack_a)
+	{
+		if (i > stack_a->value)
+			return (0);
+		i = stack_a->value;
+		stack_a = stack_a->next;
+	}
+	return (1);
 }

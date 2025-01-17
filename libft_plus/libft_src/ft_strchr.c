@@ -6,11 +6,11 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 10:20:18 by ahavu             #+#    #+#             */
-/*   Updated: 2024/12/21 09:54:34 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/09 16:38:29 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_plus.h"
 
 char	*ft_strchr(const char *s, int c)
 {

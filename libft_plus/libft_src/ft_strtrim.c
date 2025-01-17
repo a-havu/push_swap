@@ -6,11 +6,11 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 13:49:17 by ahavu             #+#    #+#             */
-/*   Updated: 2024/12/21 09:55:50 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/09 16:39:29 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_plus.h"
 
 static int	char_in_set(char chr, char const *set)
 {

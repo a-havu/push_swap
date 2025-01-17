@@ -6,11 +6,11 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 09:21:14 by ahavu             #+#    #+#             */
-/*   Updated: 2024/12/21 09:54:59 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/09 16:38:43 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_plus.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {

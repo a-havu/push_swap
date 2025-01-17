@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   args_split.c                                       :+:      :+:    :+:   */
+/*   algo_sort_big.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/31 12:24:18 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/08 12:16:24 by ahavu            ###   ########.fr       */
+/*   Created: 2025/01/14 11:17:43 by ahavu             #+#    #+#             */
+/*   Updated: 2025/01/16 10:02:54 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/push_swap.h"
+#include "../push_swap.h"
 
-char **args_split(char *arg)
+void sort_big(t_stack **stack_a)
 {
-    char    **ret;
-    
-    if (ft_strchr(arg, '\"'))
-    {
-        arg = ft_strtrim(arg, "\"");
-        ret = ft_split(arg, ' ');
-		if (!ret)
-		{
-			free (ret);
-			return (NULL);
-		}
-    }
-	else
+	t_stack	**stack_b;
+	int		stack_len;
+
+	stack_len = stack_size(stack_a);
+	if (stack_len-- > 3 && !is_stack_sorted(stack_a))
+		pb(stack_a, stack_b);
+	if (stack_len-- > 3 && !is_stack_sorted(stack_a))
+		pb(stack_a, stack_b);
+	while (stack_size(stack_a) > 3)
 	{
-		ft_printf("%s\n", "Error");
-        return (NULL);
+		init_nodes_in_a(stack_a, stack_b);
 	}
-    return (ret);
+	sort_three(stack_a);
+    
 }

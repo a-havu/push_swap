@@ -6,11 +6,11 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 11:39:33 by ahavu             #+#    #+#             */
-/*   Updated: 2024/12/21 09:53:39 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/09 16:37:40 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_plus.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {

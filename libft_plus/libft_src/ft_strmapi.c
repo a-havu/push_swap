@@ -6,11 +6,11 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 14:20:15 by ahavu             #+#    #+#             */
-/*   Updated: 2024/12/21 09:55:17 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/09 16:39:17 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_plus.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

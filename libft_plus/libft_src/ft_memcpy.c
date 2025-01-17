@@ -6,11 +6,11 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 11:09:30 by ahavu             #+#    #+#             */
-/*   Updated: 2024/12/21 09:53:34 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/09 16:37:37 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_plus.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {

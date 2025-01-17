@@ -6,11 +6,11 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 12:03:44 by ahavu             #+#    #+#             */
-/*   Updated: 2024/12/21 09:53:20 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/09 16:37:34 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_plus.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {

@@ -6,11 +6,11 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:23:50 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/02 14:44:35 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/09 16:39:40 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_plus.h"
 
 static void	clean_stash(char *stash)
 {

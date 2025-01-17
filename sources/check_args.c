@@ -6,59 +6,44 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 10:00:27 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/08 14:39:34 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/13 16:35:53 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/push_swap.h"
+#include "../push_swap.h"
+#include <stdio.h>
 
-static int	int_ok(char *arg)
+int	int_ok(char *arg)
 {
-	long int	num;
+	long long int	num;
 
-	num = ft_atoi(arg);
+	num = ft_atoi_longlong(arg);
 	if (num > INT_MAX || num < INT_MIN)
 		return (0);
 	else
-		return (1); 
+		return (1);
 }
 
-static int	compare(const char *s1, const char *s2)
+int	find_duplicate(char **argv, int i)
 {
-	size_t	i;
-
-	i = 0;
-	while (s1[i] || s2[i])
-	{
-		if ((unsigned char)s1[i] - (unsigned char)s2[i] != 0)
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
-	}
-	return (0);
-}
-
-static int	no_dups(int argc, char **argv)
-{
-    int	i;
     int	k;
 
-    i = 1;
-    k = 2;
-    while (i < argc)
+    while (argv[i])
 	{
+		k = i + 1;
 		while (argv[k])
 		{
-			if (compare(argv[i], argv[k]))
-				return (0);
+			if (ft_atoi(argv[i]) == ft_atoi(argv[k]))
+				return (1);
 			else
 				k++;
 		}
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
-static int  arg_is_number(char *arg)
+int  arg_is_number(char *arg)
 {
 	size_t i;
 
@@ -77,34 +62,25 @@ static int  arg_is_number(char *arg)
 char     **check_args(int argc, char **argv)
 {
     int     i;
-    int     k;
     
     i = 1;
-    k = 0;
-	if (no_dups(argc, argv))
-	{
-		if (argc == 2)
-		{
-			argv = args_split(argv[i]);
-			if (!argv)
-				return (NULL);
-		}
-    	while (argv[i])
-    	{
-        	if (!arg_is_number(argv[i]) || !no_dups(argc, argv) \
-			|| !int_ok(argv[i]))
-				return (NULL);
-			else
-				i++;
-    	}
+	if (argc == 2)
+    {
+        argv = split_args(argv[1]);
+		if (!argv)
+        {   
+            ft_printf("%s\n", "Error");
+			return (NULL);
+        }
+    }
+	if (find_duplicate(argv, i))
+		return (NULL);
+    while (argv[i])
+    {
+		if (!arg_is_number(argv[i]) || !int_ok(argv[i]))
+			return (NULL);
+		else
+			i++;
+    }
     return (argv);
-	}
-	return (NULL);
-}
-
-#include <stdio.h>
-int main(int argc, char **argv)
-{
-	argv = check_args(argc, argv);
-	printf("%s", argv[1]);
 }

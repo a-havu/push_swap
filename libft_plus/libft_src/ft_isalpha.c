@@ -6,11 +6,11 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 12:02:26 by ahavu             #+#    #+#             */
-/*   Updated: 2024/12/21 09:51:28 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/09 16:36:22 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_plus.h"
 
 int	ft_isalpha(int c)
 {

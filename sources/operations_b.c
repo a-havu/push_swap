@@ -6,61 +6,63 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 10:50:09 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/08 12:56:48 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/16 08:51:08 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/push_swap.h"
+#include "../push_swap.h"
 
-void    pb(t_list **stack_a, t_list **stack_b)
+void	pb(t_stack **stack_a, t_stack **stack_b)
 {
-    t_list  *temp;
+	t_stack	*temp;
 
-    if (!stack_b || !*stack_b)
-        return ;
-    temp = *stack_b;
-    ft_lstadd_front(stack_a, temp);
-    *stack_b = (*stack_b)->next;
-    ft_printf("%s\n", "pb");
+	if (!stack_a || !*stack_a)
+		return ;
+	temp = *stack_b;
+	*stack_b = *stack_a;
+	*stack_a = (*stack_a)->next;
+	(*stack_b)->next = temp;
+	ft_printf("%s\n", "pb");
 }
 
-void    rb(t_list **stack_b)
+void	rb(t_stack **stack_b)
 {
-    t_list  *top;
-    t_list  *bottom;
+	t_stack  *top;
+	t_stack  *bottom;
 
-    if (ft_lstsize(*stack_b) < 2)
-        return ;
-    top = *stack_b;
-    bottom = ft_lstlast(*stack_b);
-    ft_lstadd_back(stack_b, top);
-    *stack_b = top->next;
-    ft_printf("%s\n", "rb");
+	if (stack_size(*stack_b) < 2)
+		return ;
+	top = *stack_b;
+	bottom = stack_last(*stack_b);
+	bottom->next = top;
+	*stack_b = top->next;
+	ft_printf("%s\n", "rb");
 }
 
-void    sb(t_list **stack_b)
+void	sb(t_stack **stack_b)
 {
-    t_list  *temp;
+	t_stack  *temp;
     
-    if (!stack_b || !*stack_b || ft_lstsize(*stack_b) == 1)
-        return ;
-    temp = *stack_b;
-    *stack_b = (*stack_b)->next;
-    temp->next = (*stack_b)->next;
-    (*stack_b)->next = temp;
-    ft_printf("%s\n", "sb");
+	if (!stack_b || !*stack_b || stack_size(*stack_b) == 1)
+		return ;
+	temp = *stack_b;
+	*stack_b = (*stack_b)->next;
+	temp->next = (*stack_b)->next;
+	(*stack_b)->next = temp;
+	ft_printf("%s\n", "sb");
 }
 
-void    rrb(t_list **stack_b)
+void	rrb(t_stack **stack_b)
 {
-    t_list  *bottom;
-    t_list  *new_bottom;
+	t_stack  *bottom;
+	t_stack  *second_last;
     
-    if (ft_lstsize(*stack_b) < 2)
-        return ;
-    bottom = ft_lstlast(*stack_b);
-    ft_lstadd_front(stack_b, bottom);
-    new_bottom = ft_lstlast(*stack_b);
-    ft_lstdelone(new_bottom, del);
-    ft_printf("%s\n", "rrb");
+	if (stack_size(*stack_b) < 2)
+		return ;
+	bottom = stack_last(*stack_b);
+	second_last = bottom->prev;
+	add_node_top(stack_b, bottom);
+	second_last->next = NULL;
+	free(bottom);
+	ft_printf("%s\n", "rrb");
 }

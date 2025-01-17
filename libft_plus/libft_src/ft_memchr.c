@@ -6,11 +6,11 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 12:01:33 by ahavu             #+#    #+#             */
-/*   Updated: 2024/12/21 09:52:58 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/09 16:37:31 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_plus.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

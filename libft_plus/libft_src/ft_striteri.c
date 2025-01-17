@@ -6,11 +6,11 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 15:41:00 by ahavu             #+#    #+#             */
-/*   Updated: 2024/12/21 09:54:47 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/09 16:38:37 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_plus.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {

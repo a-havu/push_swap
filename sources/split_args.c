@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   split_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 11:49:34 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/09 16:39:32 by ahavu            ###   ########.fr       */
+/*   Created: 2024/12/31 12:24:18 by ahavu             #+#    #+#             */
+/*   Updated: 2025/01/16 08:54:18 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_plus.h"
+#include "../push_swap.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+static char	**check_split_arg(char **split_arg)
 {
-	char	*ptr;
-	size_t	i;
-	size_t	sub_len;
+	int	i;
 
-	if (s == NULL || start >= ft_strlen(s))
-		return (ft_strdup(""));
-	if (len > ft_strlen(s + start))
-		len = ft_strlen(s + start);
 	i = 0;
-	sub_len = (start + len);
-	ptr = malloc(len + 1 * sizeof(char));
-	if (ptr == NULL)
+	if (find_duplicate(split_arg, i))
 		return (NULL);
-	while (start < sub_len)
+	while (split_arg[i])
 	{
-		ptr[i] = s[start];
-		i++;
-		start++;
+		if (!arg_is_number(split_arg[i]) || !int_ok(split_arg[i]))
+			return (NULL);
+		else
+			i++;
 	}
-	ptr[i] = '\0';
-	return (ptr);
+	return (split_arg);
+}
+
+char	**split_args(char *arg)
+{
+	char	**split_arg;
+
+	split_arg = ft_split(arg, ' ');
+	if (!split_arg)
+		return (NULL);
+	split_arg = check_split_arg(split_arg);
+	return (split_arg);
 }

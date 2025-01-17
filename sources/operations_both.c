@@ -6,34 +6,29 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 10:50:46 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/08 13:50:43 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/16 08:51:33 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/push_swap.h"
+#include "../push_swap.h"
 
-void    del(void *content)
+void	ss(t_stack **stack_a, t_stack **stack_b)
 {
-    free(content);
+	sa(stack_a);
+	sb(stack_b);
+	ft_printf("%s\n", "ss");
 }
 
-void    ss(t_list **stack_a, t_list **stack_b)
+void	rr(t_stack **stack_a, t_stack **stack_b)
 {
-    sa(stack_a);
-    sb(stack_b);
-    ft_printf("%s\n", "ss");
+	ra(stack_a);
+	rb(stack_b);
+	ft_printf("%s\n", "rr");
 }
 
-void    rr(t_list **stack_a, t_list **stack_b)
+void	rrr(t_stack **stack_a, t_stack **stack_b)
 {
-    ra(stack_a);
-    rb(stack_b);
-    ft_printf("%s\n", "rr");
-}
-
-void    rrr(t_list **stack_a, t_list **stack_b)
-{
-    rra(stack_a);
-    rrb(stack_b);
-    ft_printf("%s\n", "rrr");
+	rra(stack_a);
+	rrb(stack_b);
+	ft_printf("%s\n", "rrr");
 }

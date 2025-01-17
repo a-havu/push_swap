@@ -6,11 +6,11 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 11:39:18 by ahavu             #+#    #+#             */
-/*   Updated: 2024/12/21 09:55:26 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/09 16:39:19 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_plus.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

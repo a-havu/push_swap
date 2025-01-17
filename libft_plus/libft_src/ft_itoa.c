@@ -6,11 +6,11 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:21:21 by ahavu             #+#    #+#             */
-/*   Updated: 2024/12/21 09:52:40 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/09 16:36:40 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_plus.h"
 
 static int	digit_counter(int n)
 {
