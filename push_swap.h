@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 10:01:21 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/16 16:13:49 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/21 11:56:15 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,17 @@
 
 typedef struct s_stack
 {
-	int				value;
+	long			value;
 	int				index;
 	int				push_cost;
 	bool			above_median;
+	bool			cheapest_in_stack;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 	struct s_stack	*target_node;
 }	t_stack;
 
+void print_list(t_stack *stack);
 
 //          CHECKING THE ARGUMENTS
 int		arg_is_number(char *arg);
@@ -38,18 +40,22 @@ char	**split_args(char *arg);
 char	**check_args(int argc, char **argv);
 
 //          STACK
-void	add_node_bottom(t_stack **stack, t_stack *new_node);
 void	add_node_top(t_stack **stack, t_stack *new_node);
-int		is_stack_sorted(t_stack *stack_a);
+t_stack	*biggest_value(t_stack *stack);
+t_stack	*smallest_value(t_stack *stack);
 t_stack	*stack_last(t_stack *stack);
-t_stack	*stack_new(int num);
 int		stack_size(t_stack *stack);
-void	sort_three(t_stack **stack_a);
 void	free_stack(t_stack *stack);
+void	set_index(t_stack *stack);
 
 //          ALGORITHM
-void	sort_big(t_stack **stack_a);
+void	check_min_on_top(t_stack **stack_a);
+t_stack	*find_cheapest_node(t_stack *stack);
 void	init_nodes_in_a(t_stack **stack_a, t_stack **stack_b);
+void	init_nodes_in_b(t_stack **stack_a, t_stack **stack_b);
+int		is_stack_sorted(t_stack *stack_a);
+void	sort_big(t_stack **stack_a);
+void	sort_three(t_stack **stack_a);
 
 //          MOVES
 void	pa(t_stack **stack_a, t_stack **stack_b);

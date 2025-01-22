@@ -6,7 +6,7 @@
 #    By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/30 12:34:40 by ahavu             #+#    #+#              #
-#    Updated: 2025/01/14 12:04:22 by ahavu            ###   ########.fr        #
+#    Updated: 2025/01/21 13:34:01 by ahavu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,11 +15,12 @@ NAME = push_swap
 SOURCES_PATH = sources/
 LIBFT_PATH = libft_plus/
 
-SOURCES = 	$(SOURCES_PATH)check_args.c $(SOURCES_PATH)operations_a.c \
+SOURCES = 	$(SOURCES_PATH)check_args.c $(SOURCES_PATH)init_nodes.c \
+			$(SOURCES_PATH)init_nodes_b.c $(SOURCES_PATH)operations_a.c \
 			$(SOURCES_PATH)operations_b.c $(SOURCES_PATH)operations_both.c \
 			$(SOURCES_PATH)split_args.c $(SOURCES_PATH)push_swap.c \
-			$(SOURCES_PATH)is_stack_sorted.c $(SOURCES_PATH)lst_utils.c \
-			$(SOURCES_PATH)sort_three.c $(SOURCES_PATH)sort_big.c 
+			$(SOURCES_PATH)lst_utils.c $(SOURCES_PATH)stack_utils.c \
+			$(SOURCES_PATH)sort_three.c $(SOURCES_PATH)sort_big.c \
 
 OBJECTS = $(SOURCES:.c=.o)
 
@@ -27,7 +28,9 @@ HEADER = push_swap.h
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
+#CFLAGS = -g -fsanitize=address
+#LDFLAGS = -fsanitize=address
 
 all: $(NAME)
 

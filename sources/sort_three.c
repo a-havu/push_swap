@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 17:05:42 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/16 08:53:24 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/20 14:50:45 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	sort_three(t_stack **stack)
 {
 	t_stack	*biggest;
 
-	biggest = biggest_nb(stack);
+	biggest = biggest_value(*stack);
 	if (biggest == *stack)
 		ra(stack);
 	else if (biggest == (*stack)->next)

@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 10:50:09 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/16 08:51:08 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/21 11:30:24 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,22 @@ void	pb(t_stack **stack_a, t_stack **stack_b)
 
 	if (!stack_a || !*stack_a)
 		return ;
-	temp = *stack_b;
-	*stack_b = *stack_a;
+	temp = *stack_a;
 	*stack_a = (*stack_a)->next;
-	(*stack_b)->next = temp;
+	if (*stack_a)
+		(*stack_a)->prev = NULL;
+	temp->prev = NULL;
+	if (!*stack_b)
+	{
+		*stack_b = temp;
+		temp->next = NULL;
+	}
+	else
+	{
+		temp->next = *stack_b;
+		temp->next->prev = temp;
+		*stack_b = temp;
+	}
 	ft_printf("%s\n", "pb");
 }
 

@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 10:12:12 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/16 08:49:57 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/21 11:29:24 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,26 @@
 
 void	pa(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack  *temp;
-    
+	t_stack	*temp;
+
 	if (!stack_b || !*stack_b)
 		return ;
-	temp = *stack_a;
-	*stack_a = *stack_b;
+	temp = *stack_b;
 	*stack_b = (*stack_b)->next;
-	(*stack_a)->next = temp;
+	if (*stack_b)
+		(*stack_b)->prev = NULL;
+	temp->prev = NULL;
+	if (!*stack_a)
+	{
+		*stack_a = temp;
+		temp->next = NULL;
+	}
+	else
+	{
+		temp->next = *stack_a;
+		temp->next->prev = temp;
+		*stack_a = temp;
+	}
 	ft_printf("%s\n", "pa");
 }
 
