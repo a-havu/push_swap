@@ -6,7 +6,7 @@
 #    By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/30 12:34:40 by ahavu             #+#    #+#              #
-#    Updated: 2025/01/21 13:34:01 by ahavu            ###   ########.fr        #
+#    Updated: 2025/01/23 15:40:19 by ahavu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,9 +28,8 @@ HEADER = push_swap.h
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -g
-#CFLAGS = -g -fsanitize=address
-#LDFLAGS = -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g 
+#-fsanitize=address
 
 all: $(NAME)
 

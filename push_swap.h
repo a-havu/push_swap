@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 10:01:21 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/21 11:56:15 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/23 15:22:57 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ void	set_index(t_stack *stack);
 //          ALGORITHM
 void	check_min_on_top(t_stack **stack_a);
 t_stack	*find_cheapest_node(t_stack *stack);
-void	init_nodes_in_a(t_stack **stack_a, t_stack **stack_b);
-void	init_nodes_in_b(t_stack **stack_a, t_stack **stack_b);
+void	init_nodes_in_a(t_stack *stack_a, t_stack *stack_b);
+void	init_nodes_in_b(t_stack *stack_a, t_stack *stack_b);
 int		is_stack_sorted(t_stack *stack_a);
 void	sort_big(t_stack **stack_a);
 void	sort_three(t_stack **stack_a);

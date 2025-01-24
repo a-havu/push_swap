@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 10:12:12 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/21 11:29:24 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/24 10:13:33 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,42 +39,44 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 
 void	ra(t_stack **stack_a)
 {
-	t_stack  *top;
 	t_stack  *bottom;
 
-	if (stack_size(*stack_a) < 2)
+	if (!*stack_a || !(*stack_a)->next)
 		return ;
-	top = *stack_a;
 	bottom = stack_last(*stack_a);
-	bottom->next = top;
-	*stack_a = top->next;
+	bottom->next = *stack_a;
+	*stack_a = (*stack_a)->next;
+	(*stack_a)->prev = NULL;
+	bottom->next->prev = bottom;
+	bottom->next->next = NULL;
 	ft_printf("%s\n", "ra");
 }
 
-void	sa(t_stack **stack_a)
+void sa(t_stack **stack_a)
 {
-	t_stack	*temp;
-    
-	if (!*stack_a || !stack_a || stack_size(*stack_a) == 1)
+	if (!stack_a || !(*stack_a)->next)
 		return ;
-	temp = *stack_a;
 	*stack_a = (*stack_a)->next;
-	temp->next = (*stack_a)->next;
-	(*stack_a)->next = temp;
+	(*stack_a)->prev->prev = *stack_a;
+	(*stack_a)->prev->next = (*stack_a)->next;
+	if ((*stack_a)->next)
+		(*stack_a)->next->prev = (*stack_a)->prev;
+	(*stack_a)->next = (*stack_a)->prev;
+	(*stack_a)->prev = NULL;
 	ft_printf("%s\n", "sa");
 }
 
 void	rra(t_stack **stack_a)
 {
 	t_stack	*bottom;
-	t_stack	*second_last;
     
-	if (stack_size(*stack_a) < 2)
+	if (!(*stack_a) || !(*stack_a)->next)
 		return ;
 	bottom = stack_last(*stack_a);
-	second_last = bottom->prev;
-	add_node_top(stack_a, bottom);
-	second_last->next = NULL;
-	free(bottom);
+	bottom->prev->next = NULL;
+	bottom->next = *stack_a;
+	bottom->prev = NULL;
+	*stack_a = bottom;
+	bottom->next->prev = bottom;
 	ft_printf("%s\n", "rra");
 }

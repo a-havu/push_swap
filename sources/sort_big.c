@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 11:17:43 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/21 13:14:20 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/24 10:52:03 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,14 +77,13 @@ void	sort_big(t_stack **stack_a)
 		pb(stack_a, &stack_b);
 	while (stack_size(*stack_a) > 3 && !is_stack_sorted(*stack_a))
 	{
-		init_nodes_in_a(stack_a, &stack_b);
+		init_nodes_in_a(*stack_a, stack_b);
 		move_a_to_b(stack_a, &stack_b);
 	}
-	if (stack_len == 3)
-		sort_three(stack_a);
+	sort_three(stack_a);
 	while(stack_b)
 	{
-		init_nodes_in_b(stack_a, &stack_b);
+		init_nodes_in_b(*stack_a, stack_b);
 		move_b_to_a(stack_a, &stack_b);
 	}
 	set_index(*stack_a);

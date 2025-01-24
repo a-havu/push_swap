@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 12:41:57 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/21 11:08:03 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/23 15:48:12 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,20 @@ void	add_node_top(t_stack **stack, t_stack *new_node)
 
 t_stack	*stack_last(t_stack *stack)
 {
-	if (!stack)
+	t_stack	*tmp;
+
+	tmp = stack;
+	if (!tmp)
 		return (NULL);
-	while (stack->next)
-		stack = stack->next;
-	return (stack);
+	while (tmp->next)
+		tmp = tmp->next;
+	return (tmp);
 }
 
 int	stack_size(t_stack *stack)
 {
-	t_stack	*tmp;
 	int		size;
+	t_stack	*tmp;
     
 	size = 0;
 	tmp = stack;

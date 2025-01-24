@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 10:00:33 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/21 12:48:23 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/24 11:45:14 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,10 @@ static void	create_stack(char **argv, t_stack **stack_a)
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
+	
 	stack_a = NULL;
-	if (argc < 2 || !check_args(argc, argv))
+	argv = check_args(argc, argv);
+	if (argc < 2 || !argv)
 	{
 		ft_printf("%s\n", "Error");
 		return (-1);
@@ -74,5 +76,6 @@ int	main(int argc, char **argv)
 		else
 			sort_big(&stack_a);
 	}
+	//print_list(stack_a);
 	free_stack(stack_a);
 }

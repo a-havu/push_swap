@@ -6,49 +6,51 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 10:04:39 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/20 15:08:42 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/24 10:35:52 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void	get_push_cost(t_stack *finder, t_stack *target)
+static void	get_push_cost(t_stack *stack_a, t_stack *stack_b)
 {
-	int	len_finder;
-	int	len_target;
+	int	len_a;
+	int	len_b;
 
-	len_finder = stack_size(finder);
-	len_target = stack_size(target);
-	while (finder)
+	len_a = stack_size(stack_a);
+	len_b = stack_size(stack_b);
+	while (stack_a)
 	{
-		finder->push_cost = finder->index;
-		if (!(finder->above_median))
-			finder->push_cost = len_finder - (finder->index);
-		if (finder->target_node->above_median)
-			finder->push_cost += finder->target_node->index;
+		stack_a->push_cost = stack_a->index;
+		if (!(stack_a->above_median))
+			stack_a->push_cost = len_a - (stack_a->index);
+		if (stack_a->target_node->above_median)
+			stack_a->push_cost += stack_a->target_node->index;
 		else
-			finder->push_cost += len_target - (finder->target_node->index);
-		finder = finder->next;
+			stack_a->push_cost += len_b - (stack_a->target_node->index);
+		stack_a = stack_a->next;
 	}
 }
 
 static void	set_targets_a(t_stack *stack_a, t_stack *stack_b)
 {
 	t_stack	*target_node;
+	t_stack	*temp_b;
 	long	closest_smaller;
 
 	while(stack_a)
 	{
 		closest_smaller = LONG_MIN;
-		while (stack_b)
+		temp_b = stack_b;
+		while (temp_b)
 		{
-			if ((stack_b)->value < (stack_a)->value
-			&& (stack_b)->value > closest_smaller)
+			if ((temp_b)->value < (stack_a)->value
+			&& (temp_b)->value > closest_smaller)
 			{
-				closest_smaller = (stack_b)->value;
-				target_node = stack_b;
+				closest_smaller = (temp_b)->value;
+				target_node = temp_b;
 			}
-			stack_b = stack_b->next;
+			temp_b = temp_b->next;
 		}
 		if (closest_smaller == LONG_MIN)
 			stack_a->target_node = biggest_value(stack_b);
@@ -70,7 +72,7 @@ void	set_index(t_stack *stack)
 	while (stack)
 	{
 		stack->index = i;
-		if (i > median)
+		if (i <= median)
 			stack->above_median = true;
 		else
 			stack->above_median = false;
@@ -79,12 +81,12 @@ void	set_index(t_stack *stack)
 	}
 }
 
-void	init_nodes_in_a(t_stack **stack_a, t_stack **stack_b)
+void	init_nodes_in_a(t_stack *stack_a, t_stack *stack_b)
 {
-	set_index(*stack_a);
-	set_index(*stack_b);
-	set_targets_a(*stack_a, *stack_b);
-	get_push_cost(*stack_a, *stack_b);
+	set_index(stack_a);
+	set_index(stack_b);
+	set_targets_a(stack_a, stack_b);
+	get_push_cost(stack_a, stack_b);
 }
 
 void	check_min_on_top(t_stack **stack_a)

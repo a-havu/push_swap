@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 11:51:51 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/20 14:49:59 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/23 14:11:01 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ static void	set_targets_b(t_stack *stack_b, t_stack *stack_a)
 	}
 }
 
-void	init_nodes_in_b(t_stack **stack_a, t_stack **stack_b)
+void	init_nodes_in_b(t_stack *stack_a, t_stack *stack_b)
 {
-	set_index(*stack_a);
-	set_index(*stack_b);
-	set_targets_b(*stack_b, *stack_a);
+	set_index(stack_a);
+	set_index(stack_b);
+	set_targets_b(stack_b, stack_a);
 }

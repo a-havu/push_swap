@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:00:07 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/21 12:10:38 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/24 10:38:12 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,18 @@ t_stack	*smallest_value(t_stack *stack)
 {
 	long	min;
 	t_stack	*min_node;
+	t_stack	*tmp;
 
 	min = LONG_MAX;
-	while (stack)
+	tmp = stack;
+	while (tmp)
 	{
-		if (stack->value < min)
+		if (tmp->value < min)
 		{
-			min = stack->value;
-			min_node = stack;
+			min = tmp->value;
+			min_node = tmp;
 		}
-		stack = stack->next;
+		tmp = tmp->next;
 	}
 	return (min_node);
 }
@@ -34,16 +36,18 @@ t_stack	*biggest_value(t_stack *stack)
 {
 	long	max;
 	t_stack	*max_node;
+	t_stack	*tmp;
 
 	max = LONG_MIN;
-	while (stack)
+	tmp = stack;
+	while (tmp)
 	{
-		if (stack->value > max)
+		if (tmp->value > max)
 		{
-			max = stack->value;
-			max_node = stack;
+			max = tmp->value;
+			max_node = tmp;
 		}
-		stack = stack->next;
+		tmp = tmp->next;
 	}
 	return (max_node);
 }
@@ -101,7 +105,7 @@ void print_list(t_stack *stack)
 	tmp = stack;
 	while (tmp)
 	{
-		ft_printf("index: %d value: %d\n", tmp->index, tmp->value);
+		ft_printf("%d\n", tmp->value);
 		tmp = tmp->next;
 	}
 }
