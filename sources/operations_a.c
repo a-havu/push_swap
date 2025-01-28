@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 10:12:12 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/24 10:13:33 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/28 10:25:35 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 		temp->next->prev = temp;
 		*stack_a = temp;
 	}
-	ft_printf("%s\n", "pa");
+	ft_printf("pa\n");
 }
 
 void	ra(t_stack **stack_a)
 {
-	t_stack  *bottom;
+	t_stack	*bottom;
 
 	if (!*stack_a || !(*stack_a)->next)
 		return ;
@@ -49,10 +49,10 @@ void	ra(t_stack **stack_a)
 	(*stack_a)->prev = NULL;
 	bottom->next->prev = bottom;
 	bottom->next->next = NULL;
-	ft_printf("%s\n", "ra");
+	ft_printf("ra\n");
 }
 
-void sa(t_stack **stack_a)
+void	sa(t_stack **stack_a)
 {
 	if (!stack_a || !(*stack_a)->next)
 		return ;
@@ -63,13 +63,13 @@ void sa(t_stack **stack_a)
 		(*stack_a)->next->prev = (*stack_a)->prev;
 	(*stack_a)->next = (*stack_a)->prev;
 	(*stack_a)->prev = NULL;
-	ft_printf("%s\n", "sa");
+	ft_printf("sa\n");
 }
 
 void	rra(t_stack **stack_a)
 {
 	t_stack	*bottom;
-    
+
 	if (!(*stack_a) || !(*stack_a)->next)
 		return ;
 	bottom = stack_last(*stack_a);
@@ -78,5 +78,5 @@ void	rra(t_stack **stack_a)
 	bottom->prev = NULL;
 	*stack_a = bottom;
 	bottom->next->prev = bottom;
-	ft_printf("%s\n", "rra");
+	ft_printf("rra\n");
 }

@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 10:00:27 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/13 16:35:53 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/28 15:18:42 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	int_ok(char *arg)
 
 int	find_duplicate(char **argv, int i)
 {
-    int	k;
+	int	k;
 
-    while (argv[i])
+	while (argv[i])
 	{
 		k = i + 1;
 		while (argv[k])
@@ -43,44 +43,44 @@ int	find_duplicate(char **argv, int i)
 	return (0);
 }
 
-int  arg_is_number(char *arg)
+int	arg_is_number(char *arg)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (i < ft_strlen(arg))
 	{
-		if (ft_isdigit(arg[i]) || (arg[i] == '-' && ft_isdigit(arg[i + 1]))
+		if (ft_isdigit(arg[i]) || (arg[i] == '-' && ft_isdigit(arg[i + 1])) \
 		|| (arg[i] == '+' && ft_isdigit(arg[i + 1])))
 			i++;
 		else
 			return (0);
-    }
-    return (1);
+	}
+	return (1);
 }
 
-char     **check_args(int argc, char **argv)
+char	**check_args(int argc, char **argv)
 {
-    int     i;
-    
-    i = 1;
+	int	i;
+
+	i = 0;
 	if (argc == 2)
-    {
-        argv = split_args(argv[1]);
+	{
+		argv = split_args(argv[1]);
 		if (!argv)
-        {   
-            ft_printf("%s\n", "Error");
+		{
+			ft_putstr_fd("Error\n", 2);
 			return (NULL);
-        }
-    }
+		}
+	}
 	if (find_duplicate(argv, i))
 		return (NULL);
-    while (argv[i])
-    {
+	while (argv[i])
+	{
 		if (!arg_is_number(argv[i]) || !int_ok(argv[i]))
 			return (NULL);
 		else
 			i++;
-    }
-    return (argv);
+	}
+	return (argv);
 }

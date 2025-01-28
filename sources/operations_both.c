@@ -6,29 +6,50 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 10:50:46 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/16 08:51:33 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/28 14:18:10 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ss(t_stack **stack_a, t_stack **stack_b)
+static void	rotate(t_stack **stack)
 {
-	sa(stack_a);
-	sb(stack_b);
-	ft_printf("%s\n", "ss");
+	t_stack	*bottom;
+
+	if (!*stack || !(*stack)->next)
+		return ;
+	bottom = stack_last(*stack);
+	bottom->next = *stack;
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
+	bottom->next->prev = bottom;
+	bottom->next->next = NULL;
+}
+
+static void	reverse_rotate(t_stack **stack)
+{
+	t_stack	*bottom;
+
+	if (!(*stack) || !(*stack)->next)
+		return ;
+	bottom = stack_last(*stack);
+	bottom->prev->next = NULL;
+	bottom->next = *stack;
+	bottom->prev = NULL;
+	*stack = bottom;
+	bottom->next->prev = bottom;
 }
 
 void	rr(t_stack **stack_a, t_stack **stack_b)
 {
-	ra(stack_a);
-	rb(stack_b);
-	ft_printf("%s\n", "rr");
+	rotate(stack_a);
+	rotate(stack_b);
+	ft_printf("rr\n");
 }
 
 void	rrr(t_stack **stack_a, t_stack **stack_b)
 {
-	rra(stack_a);
-	rrb(stack_b);
-	ft_printf("%s\n", "rrr");
+	reverse_rotate(stack_a);
+	reverse_rotate(stack_b);
+	ft_printf("rrr\n");
 }

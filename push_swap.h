@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 10:01:21 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/23 15:22:57 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/28 15:13:47 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ typedef struct s_stack
 	struct s_stack	*target_node;
 }	t_stack;
 
-void print_list(t_stack *stack);
-
 //          CHECKING THE ARGUMENTS
 int		arg_is_number(char *arg);
 int		find_duplicate(char **argv, int i);
@@ -40,7 +38,6 @@ char	**split_args(char *arg);
 char	**check_args(int argc, char **argv);
 
 //          STACK
-void	add_node_top(t_stack **stack, t_stack *new_node);
 t_stack	*biggest_value(t_stack *stack);
 t_stack	*smallest_value(t_stack *stack);
 t_stack	*stack_last(t_stack *stack);
@@ -49,7 +46,6 @@ void	free_stack(t_stack *stack);
 void	set_index(t_stack *stack);
 
 //          ALGORITHM
-void	check_min_on_top(t_stack **stack_a);
 t_stack	*find_cheapest_node(t_stack *stack);
 void	init_nodes_in_a(t_stack *stack_a, t_stack *stack_b);
 void	init_nodes_in_b(t_stack *stack_a, t_stack *stack_b);
@@ -65,7 +61,6 @@ void	pb(t_stack **stack_a, t_stack **stack_b);
 void	rb(t_stack **stack_b);
 void	sb(t_stack **stack_b);
 void	rr(t_stack **stack_a, t_stack **stack_b);
-void	ss(t_stack **stack_a, t_stack **stack_b);
 void	rra(t_stack **stack_a);
 void	rrb(t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);

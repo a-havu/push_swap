@@ -6,7 +6,7 @@
 #    By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/30 12:34:40 by ahavu             #+#    #+#              #
-#    Updated: 2025/01/23 15:40:19 by ahavu            ###   ########.fr        #
+#    Updated: 2025/01/28 14:12:33 by ahavu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SOURCES = 	$(SOURCES_PATH)check_args.c $(SOURCES_PATH)init_nodes.c \
 			$(SOURCES_PATH)init_nodes_b.c $(SOURCES_PATH)operations_a.c \
 			$(SOURCES_PATH)operations_b.c $(SOURCES_PATH)operations_both.c \
 			$(SOURCES_PATH)split_args.c $(SOURCES_PATH)push_swap.c \
-			$(SOURCES_PATH)lst_utils.c $(SOURCES_PATH)stack_utils.c \
+			$(SOURCES_PATH)stack_utils.c \
 			$(SOURCES_PATH)sort_three.c $(SOURCES_PATH)sort_big.c \
 
 OBJECTS = $(SOURCES:.c=.o)
@@ -28,8 +28,7 @@ HEADER = push_swap.h
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -g 
-#-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g
 
 all: $(NAME)
 
@@ -45,5 +44,6 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
+	@make clean -C $(LIBFT_PATH)
 
 re: fclean all

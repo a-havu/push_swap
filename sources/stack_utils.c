@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:00:07 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/24 10:38:12 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/28 13:58:02 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	free_stack(t_stack *stack)
 {
 	t_stack	*tmp;
 
-	while(stack)
+	while (stack)
 	{
 		tmp = stack;
 		stack = stack->next;
@@ -65,47 +65,29 @@ void	free_stack(t_stack *stack)
 	}
 }
 
-t_stack	*find_cheapest_node(t_stack *stack)
+t_stack	*stack_last(t_stack *stack)
 {
-	long	cheapest_push_cost;
-	t_stack	*cheapest_node;
+	t_stack	*tmp;
 
-	cheapest_push_cost = LONG_MAX;
-	while (stack)
-	{
-		if (stack->push_cost < cheapest_push_cost)
-		{
-			cheapest_push_cost = stack->push_cost;
-			cheapest_node = stack;
-		}
-		stack = stack->next;
-	}
-	return (cheapest_node);
+	tmp = stack;
+	if (!tmp)
+		return (NULL);
+	while (tmp->next)
+		tmp = tmp->next;
+	return (tmp);
 }
 
-int	is_stack_sorted(t_stack *stack)
+int	stack_size(t_stack *stack)
 {
-	int	i;
-	i = stack->value;
+	int		size;
+	t_stack	*tmp;
 
-	while(stack)
-	{
-		if (i > stack->value)
-			return (0);
-		i = stack->value;
-		stack = stack->next;
-	}
-	return (1);
-}
-
-void print_list(t_stack *stack)
-{
-	t_stack *tmp;
-
+	size = 0;
 	tmp = stack;
 	while (tmp)
 	{
-		ft_printf("%d\n", tmp->value);
 		tmp = tmp->next;
+		size++;
 	}
+	return (size);
 }

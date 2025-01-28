@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 10:50:09 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/24 10:17:29 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/28 10:33:33 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ void	pb(t_stack **stack_a, t_stack **stack_b)
 		temp->next->prev = temp;
 		*stack_b = temp;
 	}
-	ft_printf("%s\n", "pb");
+	ft_printf("pb\n");
 }
 
 void	rb(t_stack **stack_b)
 {
-	t_stack  *bottom;
+	t_stack	*bottom;
 
 	if (!*stack_b || !(*stack_b)->next)
 		return ;
@@ -49,7 +49,7 @@ void	rb(t_stack **stack_b)
 	(*stack_b)->prev = NULL;
 	bottom->next->prev = bottom;
 	bottom->next->next = NULL;
-	ft_printf("%s\n", "rb");
+	ft_printf("rb\n");
 }
 
 void	sb(t_stack **stack_b)
@@ -63,13 +63,13 @@ void	sb(t_stack **stack_b)
 		(*stack_b)->next->prev = (*stack_b)->prev;
 	(*stack_b)->next = (*stack_b)->prev;
 	(*stack_b)->prev = NULL;
-	ft_printf("%s\n", "sb");
+	ft_printf("sb\n");
 }
 
 void	rrb(t_stack **stack_b)
 {
 	t_stack	*bottom;
-    
+
 	if (!(*stack_b) || !(*stack_b)->next)
 		return ;
 	bottom = stack_last(*stack_b);
@@ -78,5 +78,5 @@ void	rrb(t_stack **stack_b)
 	bottom->prev = NULL;
 	*stack_b = bottom;
 	bottom->next->prev = bottom;
-	ft_printf("%s\n", "rra");
+	ft_printf("rrb\n");
 }
