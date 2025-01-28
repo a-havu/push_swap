@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 10:00:33 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/28 15:03:23 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/28 17:35:46 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ static void	create_stack(char **argv, t_stack **stack_a)
 	int		i;
 	int		num;
 
-	if (ft_isdigit(argv[0][0]))
+	if (ft_isdigit(argv[0][0]) || (argv[0][0] == '-' && ft_isdigit(argv[0][1]))
+		|| (argv[0][0] == '+' && ft_isdigit(argv[0][1])))
 		i = 0;
 	else
 		i = 1;
@@ -64,16 +65,6 @@ static void	create_stack(char **argv, t_stack **stack_a)
 		num = ft_atoi(argv[i]);
 		add_node(stack_a, num);
 		i++;
-	}
-}
-
-void print_list(t_stack *stack)
-{
-	t_stack *tmp = stack;
-	while(tmp)
-	{
-		ft_printf("%d\n", tmp->value);
-		tmp = tmp->next;
 	}
 }
 
@@ -101,6 +92,5 @@ int	main(int argc, char **argv)
 		else
 			sort_big(&stack_a);
 	}
-	print_list(stack_a);
 	free_stack(stack_a);
 }

@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 10:00:27 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/28 15:18:42 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/28 17:14:46 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ char	**check_args(int argc, char **argv)
 {
 	int	i;
 
-	i = 0;
+	i = 1;
 	if (argc == 2)
 	{
 		argv = split_args(argv[1]);
@@ -72,6 +72,7 @@ char	**check_args(int argc, char **argv)
 			ft_putstr_fd("Error\n", 2);
 			return (NULL);
 		}
+		return (argv);
 	}
 	if (find_duplicate(argv, i))
 		return (NULL);
