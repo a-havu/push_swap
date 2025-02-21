@@ -6,11 +6,11 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 10:00:33 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/28 17:35:46 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/31 10:43:06 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 int	is_stack_sorted(t_stack *stack)
 {
@@ -68,25 +68,40 @@ static void	create_stack(char **argv, t_stack **stack_a)
 	}
 }
 
+static void	handle_arguments(int argc, char **argv, t_stack **stack_a)
+{
+	int	i;
+
+	i = 0;
+	if (argc == 2)
+	{
+		argv = split_args(argv[1]);
+		if (!argv)
+			ft_error();
+		create_stack(argv, stack_a);
+		free_everything(argv);
+	}
+	else
+	{
+		argv = check_args(argv);
+		if (!argv)
+			ft_error();
+		create_stack(argv, stack_a);
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 
 	stack_a = NULL;
-	argv = check_args(argc, argv);
-	if (argc < 2 || !argv)
-	{
-		ft_putstr_fd("Error\n", 2);
-		return (-1);
-	}
-	create_stack(argv, &stack_a);
+	if (argc == 1)
+		exit(EXIT_FAILURE);
+	handle_arguments(argc, argv, &stack_a);
 	if (!is_stack_sorted(stack_a))
 	{
 		if (stack_size(stack_a) == 2)
-		{
 			sa(&stack_a);
-			return (0);
-		}
 		else if (stack_size(stack_a) == 3)
 			sort_three(&stack_a);
 		else

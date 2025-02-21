@@ -6,19 +6,25 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 10:00:27 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/28 17:14:46 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/31 13:11:44 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 #include <stdio.h>
+
+void	ft_error(void)
+{
+	ft_putstr_fd("Error\n", 2);
+	exit(EXIT_FAILURE);
+}
 
 int	int_ok(char *arg)
 {
-	long long int	num;
+	long long	num;
 
 	num = ft_atoi_longlong(arg);
-	if (num > INT_MAX || num < INT_MIN)
+	if (num > INT_MAX || num < INT_MIN || ft_strlen(arg) > 11)
 		return (0);
 	else
 		return (1);
@@ -45,35 +51,29 @@ int	find_duplicate(char **argv, int i)
 
 int	arg_is_number(char *arg)
 {
-	size_t	i;
+	int		i;
 
 	i = 0;
-	while (i < ft_strlen(arg))
-	{
-		if (ft_isdigit(arg[i]) || (arg[i] == '-' && ft_isdigit(arg[i + 1])) \
-		|| (arg[i] == '+' && ft_isdigit(arg[i + 1])))
-			i++;
-		else
-			return (0);
-	}
+	if (!ft_isdigit(arg[i]) && arg[i] != '-' && arg[i] != '+')
+		return (0);
+	else if (arg[i] == '-')
+		i++;
+	else if (arg[i] == '+')
+		i++;
+	if (!ft_isdigit(arg[i]))
+		return (0);
+	while (arg[i] >= '0' && arg[i] <= '9')
+		i++;
+	if (arg[i] && !ft_isdigit(arg[i]))
+		return (0);
 	return (1);
 }
 
-char	**check_args(int argc, char **argv)
+char	**check_args(char **argv)
 {
 	int	i;
 
 	i = 1;
-	if (argc == 2)
-	{
-		argv = split_args(argv[1]);
-		if (!argv)
-		{
-			ft_putstr_fd("Error\n", 2);
-			return (NULL);
-		}
-		return (argv);
-	}
 	if (find_duplicate(argv, i))
 		return (NULL);
 	while (argv[i])

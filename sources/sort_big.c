@@ -6,11 +6,11 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 11:17:43 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/28 17:04:34 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/30 16:41:47 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 static void	check_min_on_top(t_stack **stack_a)
 {

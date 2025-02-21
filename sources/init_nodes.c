@@ -6,11 +6,11 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 10:04:39 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/28 14:17:42 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/30 16:41:31 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 static void	set_cheapest_node(t_stack *stack)
 {

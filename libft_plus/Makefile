@@ -6,15 +6,17 @@
 #    By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 10:20:46 by ahavu             #+#    #+#              #
-#    Updated: 2025/01/21 09:52:58 by ahavu            ###   ########.fr        #
+#    Updated: 2025/01/30 16:49:14 by ahavu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft_plus.a
-LIBFT_PATH = libft_src/
-PRINTF_PATH = ft_printf/
+NAME := libft_plus.a
+LIBFT_PATH := libft_src/
+PRINTF_PATH := ft_printf/
+INCL := -I ../incl/
+OBJ_DIR := obj/
 
-LIBFT_SRC = $(LIBFT_PATH)ft_atoi.c $(LIBFT_PATH)ft_bzero.c \
+LIBFT_SRC := $(LIBFT_PATH)ft_atoi.c $(LIBFT_PATH)ft_bzero.c \
 			$(LIBFT_PATH)ft_calloc.c $(LIBFT_PATH)ft_isalnum.c \
 			$(LIBFT_PATH)ft_isalpha.c $(LIBFT_PATH)ft_isascii.c \
 			$(LIBFT_PATH)ft_isdigit.c $(LIBFT_PATH)ft_isprint.c \
@@ -38,18 +40,18 @@ LIBFT_SRC = $(LIBFT_PATH)ft_atoi.c $(LIBFT_PATH)ft_bzero.c \
 			$(LIBFT_PATH)ft_lstmap.c $(LIBFT_PATH)get_next_line.c \
 			$(LIBFT_PATH)ft_atoi_longlong.c
 
-PRINTF_SRC = 	$(PRINTF_PATH)ft_printf.c $(PRINTF_PATH)print_char.c \
+PRINTF_SRC := 	$(PRINTF_PATH)ft_printf.c $(PRINTF_PATH)print_char.c \
 				$(PRINTF_PATH)print_hex.c $(PRINTF_PATH)print_nbr.c \
 				$(PRINTF_PATH)print_ptr.c $(PRINTF_PATH)print_str.c \
 				$(PRINTF_PATH)print_uint.c
 
-LIBFT_OBJECTS = $(LIBFT_SRC:.c=.o)
-PRINTF_OBJECTS = $(PRINTF_SRC:.c=.o)
+LIBFT_OBJECTS := $(LIBFT_SRC:.c=.o)
+PRINTF_OBJECTS := $(PRINTF_SRC:.c=.o)
 
-HEADER = $(LIBFT_PATH)libft_plus.h $(PRINTF_PATH)libftprintf.h
+HEADER := $(INCL)libft_plus.h $(INCL)libftprintf.h
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS := -Wall -Wextra -Werror -I ../incl
 
 all: $(NAME)
 

@@ -6,11 +6,11 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:00:07 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/28 13:58:02 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/30 16:41:54 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 t_stack	*smallest_value(t_stack *stack)
 {

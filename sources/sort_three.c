@@ -6,11 +6,11 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 17:05:42 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/28 10:41:55 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/30 16:41:50 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	sort_three(t_stack **stack)
 {

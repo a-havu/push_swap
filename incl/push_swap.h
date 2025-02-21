@@ -6,15 +6,15 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 10:01:21 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/28 17:00:16 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/31 13:11:55 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft_plus/libft_src/libft_plus.h"
-# include "libft_plus/ft_printf/libftprintf.h"
+# include "libft_plus.h"
+# include "libftprintf.h"
 # include <limits.h>
 # include <stdbool.h>
 
@@ -33,9 +33,11 @@ typedef struct s_stack
 //          CHECKING THE ARGUMENTS
 int		arg_is_number(char *arg);
 int		find_duplicate(char **argv, int i);
+void	free_everything(char **arg);
+void	ft_error(void);
 int		int_ok(char *arg);
 char	**split_args(char *arg);
-char	**check_args(int argc, char **argv);
+char	**check_args(char **argv);
 
 //          STACK
 t_stack	*biggest_value(t_stack *stack);

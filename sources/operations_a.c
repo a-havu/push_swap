@@ -6,11 +6,11 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 10:12:12 by ahavu             #+#    #+#             */
-/*   Updated: 2025/01/28 10:25:35 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/30 16:41:35 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	pa(t_stack **stack_a, t_stack **stack_b)
 {
